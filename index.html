@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For Dev 💗</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{
+      margin:0;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(#f8b6c8,#fce4ec);
+      font-family: 'Comic Sans MS', cursive;
+    }
+    .card{
+      background:#ffd6e5;
+      padding:30px;
+      border-radius:20px;
+      text-align:center;
+      width:90%;
+      max-width:420px;
+    }
+    button{
+      width:100%;
+      padding:14px;
+      margin-top:12px;
+      border:none;
+      border-radius:30px;
+      font-weight:bold;
+      font-size:15px;
+    }
+    .yes{background:#ff4d6d;color:white;}
+    .no{background:white;color:#ff4d6d;border:2px solid #ff4d6d; position:relative;}
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <h2>Hey Dev 💖</h2>
+  <p>Will you be my Valentine?</p>
+
+  <a href="gifts.html">
+    <button class="yes">YES OF COURSE</button>
+  </a>
+
+  <button class="no" id="noBtn">NO THANK YOU</button>
+</div>
+
+<script>
+  const noBtn = document.getElementById("noBtn");
+  function run(){
+    noBtn.style.position="absolute";
+    noBtn.style.left=Math.random()*200+"px";
+    noBtn.style.top=Math.random()*200+"px";
+  }
+  noBtn.addEventListener("mouseover",run);
+  noBtn.addEventListener("touchstart",run);
+</script>
+
+</body>
+</html>
