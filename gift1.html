@@ -1,22 +1,161 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>A Song for You 💖</title>
+  <title>For Devu 💖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body{
+      margin:0;
+      font-family:'Comic Sans MS', cursive;
+      background:linear-gradient(135deg,#ffe6f0,#fff5f9);
+      text-align:center;
+      overflow-x:hidden;
+    }
+
+    /* Animated Name */
+    .name{
+      margin-top:25px;
+      font-size:38px;
+      font-weight:bold;
+      color:#ff3b6f;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow{
+      from{
+        text-shadow:0 0 10px #ff8fab;
+      }
+      to{
+        text-shadow:0 0 25px #ff4d6d, 0 0 40px #ff85a2;
+      }
+    }
+
+    h2{
+      color:#ff3b6f;
+      margin-top:10px;
+    }
+
+    /* Collage */
+    .collage{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:10px;
+      padding:20px;
+      max-width:500px;
+      margin:auto;
+    }
+
+    .collage img{
+      width:100%;
+      border-radius:18px;
+      box-shadow:0 8px 20px rgba(0,0,0,.2);
+      object-fit:cover;
+      aspect-ratio:1/1;
+    }
+
+    .scroll-text{
+      margin-top:10px;
+      font-size:14px;
+      color:#888;
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink{
+      0%,100%{opacity:1;}
+      50%{opacity:0.4;}
+    }
+
+    .quote{
+      margin:40px 20px;
+      font-size:18px;
+      color:#444;
+      font-weight:bold;
+    }
+
+    .back{
+      display:inline-block;
+      margin-bottom:60px;
+      padding:12px 20px;
+      background:#ff4d6d;
+      color:white;
+      border-radius:30px;
+      text-decoration:none;
+    }
+
+    /* Floating Hearts */
+    .heart{
+      position:fixed;
+      bottom:-20px;
+      font-size:20px;
+      animation: floatUp linear infinite;
+      opacity:0.8;
+    }
+
+    @keyframes floatUp{
+      0%{
+        transform:translateY(0) scale(1);
+        opacity:0.9;
+      }
+      100%{
+        transform:translateY(-110vh) scale(1.5);
+        opacity:0;
+      }
+    }
+
+  </style>
 </head>
-<body style="margin:0;display:flex;justify-content:center;align-items:center;height:100vh;background:#fde2e4;font-family:Comic Sans MS;text-align:center;">
 
-<div>
-  <h2>Wanna Be Yours 💕</h2>
+<body>
 
-  <audio autoplay controls>
-    <source src="wannabeyours.mp3" type="audio/mpeg">
-  </audio>
+<div class="name">Devu 💕</div>
+<h2>Every Version of You</h2>
 
-  <p style="margin-top:20px;">
-    <a href="index.html">Restart 💗</a>
-  </p>
+<div class="collage">
+  <img src="pic1.jpg">
+  <img src="pic2.jpg">
+  <img src="pic3.jpg">
+  <img src="pic4.jpg">
 </div>
+
+<div class="scroll-text">Keep scrolling ↓</div>
+
+<div class="quote">
+  "I don’t just love you in moments.  
+  I love you in every second,  
+  every smile,  
+  every version of you."
+</div>
+
+<audio id="bgMusic" autoplay>
+  <source src="wannabeyours.mp3" type="audio/mpeg">
+</audio>
+
+<a href="gifts.html" class="back">⬅ Back to gifts</a>
+
+<script>
+  // Ensure autoplay works after interaction
+  document.addEventListener("click", function(){
+    document.getElementById("bgMusic").play();
+  });
+
+  // Create floating hearts dynamically
+  function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+    heart.style.fontSize = (15 + Math.random() * 20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 8000);
+  }
+
+  setInterval(createHeart, 500);
+</script>
 
 </body>
 </html>
